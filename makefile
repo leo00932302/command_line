@@ -2,11 +2,15 @@ CC = gcc
 FLAG = -Wall -Wextra
 
 main : main.o function.o
-	$(CC) $(FLAG) main.c -o main
+	$(CC) $(FLAG) main.o function.o -o main
 
-function : function.o
-	$(CC) $(FLAG) function.c -o function.o
-	
+main.o : main.c function.h
+	$(CC) $(FLAG) -c main.c -o main.o
+
+function.o : function.c function.h
+	$(CC) $(FLAG) -c function.c -o function.o
+
+
 .PHONY = clean
 clean :
 	rm -rf *.o main
