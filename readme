@@ -1,0 +1,19 @@
+# shell基本設計理念
+## 目前可用命令
+help
+exit
+## 實現方式
+### global variable
+char *shell_str[]
+int (*shell_func[])(char**)
+### main function
+loop -> read_line -> split_line -> execute -|
+^                                           |
+|___________________________________________|
+
+### read_line
+
+### split_line
+
+### execute
+
